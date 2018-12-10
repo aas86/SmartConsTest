@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css"
-          href="../../resources/my.css"/>
+    <!--<link rel="stylesheet" type="text/css"
+          href="../../resources/my.css"/>-->
     <link rel="stylesheet" type="text/css"
           href="../../resources/bootstrap.min.css"/>
     <script src="../../resources/vue.js"></script>

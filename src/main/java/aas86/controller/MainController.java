@@ -7,7 +7,6 @@ import aas86.service.ServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import java.util.LinkedList;
 
@@ -28,19 +27,13 @@ public class MainController {
     @RequestMapping(value = "/addClient", method = RequestMethod.POST)
     @ResponseBody
     public void addClient(@RequestBody ClientDto client) {
-        System.out.println(client);
         serviceClient.addClient(client.getName());
     }
 
     @RequestMapping(value = "/getAccounts", method = RequestMethod.GET)
-    // @ResponseBody
-
-    public String getAccounts(Model model,
-                              @RequestParam String name) {
-        System.out.println(name);
+    public String getAccounts(Model model, @RequestParam String name) {
         LinkedList<Account> list = serviceClient.getClientAccounts(name);
         list.stream().forEach(x -> System.out.println(x.getOwnerName() + x.getMoney()));
-
         model.addAttribute("accountList", list);
         return "accounts";
 

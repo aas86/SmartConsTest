@@ -5,11 +5,7 @@ import aas86.model.Account;
 import aas86.model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.sql.SQLException;
 import java.util.LinkedList;
-import java.util.List;
-
 
 @Service
 public class ServiceClient {
