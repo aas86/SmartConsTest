@@ -10,11 +10,14 @@ import java.util.LinkedList;
 @Repository
 public class ClientDao {
 
+    private final String user = "postgres";
+    private final String password = "root";
+
     public LinkedList<Client> getAllClients() {
         LinkedList<Client> clientsList = new LinkedList<>();
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", "postgres", "root");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", user, password);
             Statement st = null;
             st = connection.createStatement();
             ResultSet rs = null;
@@ -35,7 +38,7 @@ public class ClientDao {
     public void addClient(String name) {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", "postgres", "root");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", user, password);
             Statement st = null;
             st = connection.createStatement();
             String queryString = "INSERT INTO clients(name)VALUES('" + name + "')";
@@ -48,15 +51,19 @@ public class ClientDao {
         }
     }
 
-    public LinkedList<Account> getClientAccounts() {
+    public LinkedList<Account> getClientAccounts(String name) {
         LinkedList<Account> accountsList = new LinkedList<>();
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", "postgres", "root");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bank", user, password);
             Statement st = null;
             st = connection.createStatement();
             ResultSet rs = null;
-            String queryString = "SELECT name, money FROM clients JOIN accounts ON accounts.client_id = clients.id";
+            String queryString = "SELECT name, money FROM clients" +
+                    " JOIN accounts" +
+                    " ON accounts.client_id = clients.id" +
+                    " WHERE name = " + "'" + name + "'";
+
             //System.out.println(queryString);
             rs = st.executeQuery(queryString);
             while (rs.next()) {

@@ -24,21 +24,12 @@ $(document).ready(function () {
             })
         })
     });
-    var deleteBtn = $(".delete-btn");
+    var deleteBtn = $(".account-btn");
     deleteBtn.on('click', function () {
-       var name = $(this).closest("tr").find("td:eq(1)").text();
-       console.log(name);
+        var name = $(this).closest("tr").find("td:eq(1)").text();
+        console.log(name);
         var client = new Client(name);
-        console.log(client);
-        $.ajax({
-            type: "POST",
-            url: "/api/v1/getAccounts",
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(client)
-        }).always(function () {
-            console.log("!!!!");
-        });
+        location.replace("http://localhost:8080/api/v1/getAccounts?name=" + name);
     });
 });
 function Client(name) {

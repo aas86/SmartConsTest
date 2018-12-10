@@ -25,7 +25,7 @@ public class ServiceClient {
         clientDao.addClient(name);
     }
 
-    public LinkedList<Account> getClientAccounts(){
-        return clientDao.getClientAccounts();
+    public LinkedList<Account> getClientAccounts(String name){
+        return clientDao.getClientAccounts(name);
     }
 }

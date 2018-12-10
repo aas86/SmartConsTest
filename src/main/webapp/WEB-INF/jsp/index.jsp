@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css"
-          href="../../resources/my.css"/>
+   <!-- <link rel="stylesheet" type="text/css"
+          href="../../resources/my.css"/>-->
     <link rel="stylesheet" type="text/css"
           href="../../resources/bootstrap.min.css"/>
 
@@ -15,7 +15,7 @@
 <body>
 <div id="first-page" class="container">
 
-    <h1>Hello JSP</h1>
+    <h1>Clients</h1>
     <table class="tablet table table-striped table-bordered">
         <thead>
         <tr>
@@ -31,7 +31,7 @@
                 <td>${client.id}</td>
                 <td>${client.name}</td>
                 <td>
-                    <button id type="button" class="btn btn-primary delete-btn">Account</button>
+                    <button id type="button" class="btn btn-primary account-btn">Account</button>
                 </td>
             </tr>
         </c:forEach>
@@ -42,7 +42,6 @@
             <label class="form-label">
                 <span class="form-field">Name</span>
                 <input type="text" class="form-control input-sm form-input" id="name"/>
-                <span class="error-message" data-bind="text: lastNameError().message, visible: validation"></span>
             </label>
         </div>
         <div>
@@ -53,6 +52,6 @@
 
 </div>
 <script src="../../resources/jquery-3.2.1.js"></script>
-<script src="../../resources/main.js"></script>
+<script src="../../resources/index.js"></script>
 </body>
 </html>
